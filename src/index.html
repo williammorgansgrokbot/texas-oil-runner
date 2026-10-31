@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
+<title>Texas Oil Runner</title>
+<link rel="stylesheet" href="style.css">
+<script type="importmap">{"imports":{"three":"./vendor/three.module.min.js","three/addons/":"./vendor/addons/"}}</script>
+</head><body>
+<canvas id="c"></canvas>
+<div id="hud" class="hidden">
+  <div class="hl">
+    <div class="stat"><span class="lbl">Score</span><span id="score">0</span></div>
+    <div class="stat small"><span class="lbl">Distance</span><span id="dist">0 ft</span></div>
+    <div id="zone" class="zonetag">Ranch Road</div>
+  </div>
+  <div class="hr">
+    <div class="stat coin"><img class="ci" src="assets/drop.png"><span id="coins">0</span></div>
+    <div class="starmeter" id="starmeter"><i></i><i></i><i></i><i></i><i></i></div>
+    <div class="stat mult">x<span id="mult">1</span></div>
+  </div>
+  <div id="combo" class="combo"></div>
+  <div id="powers"></div>
+  <div id="toast"></div>
+  <div id="pops"></div>
+  <button id="pauseBtn" class="iconbtn" title="Pause (P)">II</button>
+  <button id="muteBtn" class="iconbtn" title="Mute (M)">&#9835;</button>
+</div>
+<div id="feverFx" class="hidden"></div>
+<div id="menu" class="overlay title">
+  <div class="titlewrap">
+    <div class="ribbon">DryAire Rentals &middot; Beaumont, TX</div>
+    <h1 class="logo"><span class="sub">Texas Oil</span>Runner</h1>
+    <div class="tagline">A Golden-Hour Oilfield Dash</div>
+    <button id="playBtn" class="btn big">&#9654; PLAY</button>
+    <div class="best">Best: <b id="bestMenu">0</b> &nbsp;&middot;&nbsp; Farthest: <b id="farMenu">0</b> ft</div>
+    <div class="card perks">
+      <div class="legend">
+        <span><img src="assets/hardhat.png">Hard Hat Boost</span>
+        <span><img src="assets/shield.png">Dryer Shield</span>
+        <span><img src="assets/magnet.png">Wrench Magnet</span>
+        <span><img src="assets/boots.png">Boot Scoot Jump</span>
+        <span><img src="assets/star.png">5 Stars = Lone Star Fever</span>
+      </div>
+    </div>
+  </div>
+</div>
+<div id="over" class="overlay hidden">
+  <div class="panel">
+    <div class="kicker" id="overKicker">That spill's on us...</div>
+    <h2 id="crashWord">Shift Over!</h2>
+    <div class="results">
+      <div><span class="lbl">Score</span><b id="fScore">0</b></div>
+      <div><span class="lbl">Drops</span><b id="fCoins">0</b></div>
+      <div><span class="lbl">Stars</span><b id="fStars">0</b></div>
+      <div><span class="lbl">Distance</span><b id="fDist">0</b></div>
+    </div>
+    <div class="subres" id="fExtra"></div>
+    <div id="newBest" class="newbest hidden">&#9733; New High Score &#9733;</div>
+    <div class="best">Best: <b id="bestOver">0</b></div>
+    <blockquote id="verse"></blockquote>
+    <label class="chk"><input type="checkbox" id="verseToggle" checked> Show a roughneck saying</label>
+    <button id="againBtn" class="btn">Run Again</button>
+    <button id="menuBtn" class="btn ghost">Main Menu</button>
+    <div class="contact">Need clean, dry air on site? <a href="tel:+18554379247">1-855-4-DRYAIR</a></div>
+  </div>
+</div>
+<div id="paused" class="overlay hidden"><div class="panel"><div class="kicker">Shade under the mesquite</div><h2>Water Break</h2><button id="resumeBtn" class="btn">Back to Work</button></div></div>
+<div id="loading" class="overlay"><div class="panel"><div class="kicker">Priming the pumps...</div></div></div>
+<script type="module" src="game.js"></script>
+</body></html>
